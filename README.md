@@ -1,7 +1,7 @@
 # skratch
 Skratch bot is a replacement for youBot-brsu used by b-it-bots@Work "mas_industrial_robotics". It is designed and developed using the robot parts of old and retired robots available in b-it-bots lab at Hochschule Bonn-Rhein-Sieg in collaboration with RoBonn-Systems.
 
-To open RVIZ and visualize the base, open the terminal and go to the workspace directory and execute below commands
+To open RVIZ and visualize the base, open the terminal and execute below commands
 
 `mkdir robonn_ws`
 

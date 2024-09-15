@@ -19,4 +19,6 @@ To open RVIZ and visualize the base, open the terminal and execute below command
 
 `cd ../.. && colcon build`
 
+`source install/setup.bash`
+
 `ros2 launch skratch robot.launch.py`

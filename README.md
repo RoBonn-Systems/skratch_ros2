@@ -1,24 +1,36 @@
-# skratch
+# skratch_ROS2
 Skratch bot is a replacement for youBot-brsu used by b-it-bots@Work "mas_industrial_robotics". It is designed and developed using the robot parts of old and retired robots available in b-it-bots lab at Hochschule Bonn-Rhein-Sieg in collaboration with RoBonn-Systems.
 
-To open RVIZ and visualize the base, open the terminal and execute below commands
+This repositiory is for skratch ROS2 development
 
-`mkdir robonn_ws`
+To open rviz2 and visualize the base, open the terminal and execute below commands
 
-`cd robonn_ws && mkdir src`
+Create a new workspace
 
-`cd .. && colcon build`
+    mkdir robonn_ws
 
-`cd src`
+    cd robonn_ws && mkdir src
 
-`git clone https://github.com/RoBonn-Systems/skratch.git`
+Build the workspace
 
-`git clone https://github.com/RoBonn-Systems/skratch_description.git`
+    cd .. && colcon build
 
-`cd skratch && git checkout ros2_humble`
+Clone the required repositories for skratch ROS2 and description 
 
-`cd ../.. && colcon build`
+    cd src
 
-`source install/setup.bash`
+    git clone https://github.com/RoBonn-Systems/skratch_ros2.git
 
-`ros2 launch skratch robot.launch.py`
+    git clone https://github.com/RoBonn-Systems/skratch_description.git
+
+Build the repository packages
+
+    cd .. && colcon build
+
+Source the workspace
+
+    source install/setup.bash
+
+To run the basic rviz2 simulation execute below launch file
+
+    ros2 launch skratch_ros2 robot.launch.py

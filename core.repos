@@ -1,0 +1,5 @@
+repositories:
+    skratch_description:
+        type: git
+        url: https://github.com/RoBonn-Systems/skratch_description.git
+        version: main

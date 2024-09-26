@@ -15,21 +15,25 @@
       import_tasks: tasks/ros.yml
       tags:
         - robot
+        - ros
     - name: Set environment information
       import_tasks: tasks/env.yml
       tags: 
         - developer
         - robot
+        - env
     - name: System tooling
       import_tasks: tasks/tooling.yml
       tags: 
         - developer
         - robot
+        - tooling
     - name: Pull external repos
       import_tasks: tasks/vcs.yml
       tags:
         - developer
         - robot
+        - vcs
     - name: Install dependencies
       import_tasks: tasks/rosdep.yml
       tags:

@@ -14,7 +14,7 @@ def generate_launch_description():
 
     # Process the URDF file
     description_path = os.path.join(get_package_share_directory('skratch_description'))
-    skratch_path = os.path.join(get_package_share_directory('skratch_ros2'))
+    skratch_path = os.path.join(get_package_share_directory('skratch_bringup'))
     xacro_file = os.path.join(description_path, 'robots', 'robot.urdf.xacro')
     belt_description_config = xacro.process_file(xacro_file)
     rviz_config_file = os.path.join(skratch_path, 'config', 'robot.rviz')

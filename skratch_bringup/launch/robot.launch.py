@@ -1,73 +1,71 @@
-import os
-from ament_index_python.packages import get_package_share_directory
-from launch import LaunchDescription
-from launch.substitutions import LaunchConfiguration
-from launch.actions import DeclareLaunchArgument
-from launch_ros.actions import Node
-from launch.conditions import IfCondition, UnlessCondition
-import xacro
+from launch import LaunchDescription, LaunchDescriptionEntity
+from launch.conditions import IfCondition
+from launch.substitutions import EnvironmentVariable, LaunchConfiguration, PathJoinSubstitution
+from launch.actions import DeclareLaunchArgument, IncludeLaunchDescription, OpaqueFunction
+from launch_ros.actions import Node, PushRosNamespace
+from launch_ros.substitutions import FindPackageShare
 
 
-def generate_launch_description():
+def launch_args(context) -> list[LaunchDescriptionEntity]:
 
-    use_sim_time = LaunchConfiguration('use_sim_time')
+    declared_args = []
 
-    # Process the URDF file
-    description_path = os.path.join(get_package_share_directory('skratch_description'))
-    skratch_path = os.path.join(get_package_share_directory('skratch_bringup'))
-    xacro_file = os.path.join(description_path, 'robots', 'robot.urdf.xacro')
-    belt_description_config = xacro.process_file(xacro_file)
-    rviz_config_file = os.path.join(skratch_path, 'config', 'robot.rviz')
-    
-    params = {'robot_description': belt_description_config.toxml(), 'use_sim_time': use_sim_time}
-    node_robot_state_publisher = Node(
-        package='robot_state_publisher',
-        executable='robot_state_publisher',
-        output='screen',
-        parameters=[params]
+    declared_args.append(DeclareLaunchArgument(
+        "use_sim_time",
+        default_value="false",
+        description="Use sim time if true"
+    ))
+
+    declared_args.append(DeclareLaunchArgument(
+        "start_rviz",
+        default_value="true",
+        description="Start RViz2 automatically with this launch file."
+    ))
+
+    return declared_args
+
+
+def launch_setup(context) -> list[LaunchDescriptionEntity]:
+
+    robot_description = IncludeLaunchDescription(
+        PathJoinSubstitution([
+            FindPackageShare("skratch_bringup"),
+            "launch",
+            "robot_description.launch.py"
+        ]),
+        launch_arguments={
+            "use_sim_time": LaunchConfiguration("use_sim_time")
+        }.items()
     )
-    gui_arg = DeclareLaunchArgument(
-        name='gui',
-        default_value='True'
-    )
 
-    show_gui = LaunchConfiguration('gui')
-    joint_state_publisher_node = Node(
-        condition=UnlessCondition(show_gui),
-        package='joint_state_publisher',
-        executable='joint_state_publisher',
-        name='joint_state_publisher'
-    )
+    rviz_config_file = PathJoinSubstitution([
+        FindPackageShare("skratch_bringup"),
+        "config",
+        "robot.rviz"
+    ])
 
-    joint_state_publisher_gui_node = Node(
-        condition=IfCondition(show_gui),
-        package='joint_state_publisher_gui',
-        executable='joint_state_publisher_gui',
-        name='joint_state_publisher_gui'
-    )
-    rviz_node = Node(
+    rviz = Node(
         package='rviz2',
         executable='rviz2',
         name='rviz2',
         arguments=['-d', rviz_config_file],
-        output='screen'
+        output='screen',
+        condition=IfCondition(LaunchConfiguration("start_rviz"))
     )
 
-    
-
-    # Launch!
-    return LaunchDescription([
-        DeclareLaunchArgument(
-            'use_sim_time',
-            default_value='false',
-            description='Use sim time if true'),
-
-        node_robot_state_publisher,
-        gui_arg,
-        joint_state_publisher_node,
-        joint_state_publisher_gui_node,
-        rviz_node
-    ])
+    return [
+        PushRosNamespace(EnvironmentVariable("ROBOT_NAME")), # this help to add namespace to all entities
+        robot_description,
+        rviz
+    ]
 
 
+def generate_launch_description() -> LaunchDescription:
 
+    ld = LaunchDescription()
+
+    ld.add_action(OpaqueFunction(function=launch_args))
+
+    ld.add_action(OpaqueFunction(function=launch_setup))
+
+    return ld

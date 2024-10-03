@@ -59,7 +59,7 @@ Visualization Manager:
         Durability Policy: Volatile
         History Policy: Keep Last
         Reliability Policy: Reliable
-        Value: /robot_description
+        Value: /skratch/robot_description
       Enabled: true
       Links:
         All Links Enabled: true
@@ -71,7 +71,92 @@ Visualization Manager:
           Alpha: 1
           Show Axes: false
           Show Trail: false
-        left_frame_one:
+        front_left_skratch_wheel_hub:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        front_left_wheel_one:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        front_left_wheel_two:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        front_right_skratch_wheel_hub:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        front_right_wheel_one:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        front_right_wheel_two:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        left_skratch_bottom_base:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        left_skratch_top_base:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        left_skratch_wheel_support:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        rear_left_skratch_wheel_hub:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        rear_left_wheel_one:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        rear_left_wheel_two:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        rear_right_skratch_wheel_hub:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        rear_right_wheel_one:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        rear_right_wheel_two:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        right_skratch_bottom_base:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        right_skratch_top_base:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        right_skratch_wheel_support:
           Alpha: 1
           Show Axes: false
           Show Trail: false
@@ -91,7 +176,41 @@ Visualization Manager:
         All Enabled: true
         base_link:
           Value: true
-        left_frame_one:
+        front_left_skratch_wheel_hub:
+          Value: true
+        front_left_wheel_one:
+          Value: true
+        front_left_wheel_two:
+          Value: true
+        front_right_skratch_wheel_hub:
+          Value: true
+        front_right_wheel_one:
+          Value: true
+        front_right_wheel_two:
+          Value: true
+        left_skratch_bottom_base:
+          Value: true
+        left_skratch_top_base:
+          Value: true
+        left_skratch_wheel_support:
+          Value: true
+        rear_left_skratch_wheel_hub:
+          Value: true
+        rear_left_wheel_one:
+          Value: true
+        rear_left_wheel_two:
+          Value: true
+        rear_right_skratch_wheel_hub:
+          Value: true
+        rear_right_wheel_one:
+          Value: true
+        rear_right_wheel_two:
+          Value: true
+        right_skratch_bottom_base:
+          Value: true
+        right_skratch_top_base:
+          Value: true
+        right_skratch_wheel_support:
           Value: true
       Marker Scale: 1
       Name: TF
@@ -100,8 +219,32 @@ Visualization Manager:
       Show Names: false
       Tree:
         base_link:
-          left_frame_one:
-            {}
+          left_skratch_top_base:
+            left_skratch_bottom_base:
+              left_skratch_wheel_support:
+                front_left_skratch_wheel_hub:
+                  front_left_wheel_one:
+                    {}
+                  front_left_wheel_two:
+                    {}
+                rear_left_skratch_wheel_hub:
+                  rear_left_wheel_one:
+                    {}
+                  rear_left_wheel_two:
+                    {}
+          right_skratch_top_base:
+            right_skratch_bottom_base:
+              right_skratch_wheel_support:
+                front_right_skratch_wheel_hub:
+                  front_right_wheel_one:
+                    {}
+                  front_right_wheel_two:
+                    {}
+                rear_right_skratch_wheel_hub:
+                  rear_right_wheel_one:
+                    {}
+                  rear_right_wheel_two:
+                    {}
       Update Interval: 0
       Value: true
   Enabled: true

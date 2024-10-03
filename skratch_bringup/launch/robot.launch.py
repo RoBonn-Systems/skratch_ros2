@@ -31,7 +31,7 @@ def launch_setup(context) -> list[LaunchDescriptionEntity]:
         PathJoinSubstitution([
             FindPackageShare("skratch_bringup"),
             "launch",
-            "robot_description.launch.py"
+            "states.launch.py"
         ]),
         launch_arguments={
             "use_sim_time": LaunchConfiguration("use_sim_time")

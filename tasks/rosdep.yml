@@ -15,4 +15,4 @@
 - name: Install ros native dependencies
   shell: rosdep install --from-paths src --ignore-src -r -y
   args:
-    chdir: "~/{{ lookup('env', 'ROBOT_NAME') }}_ws"
+    chdir: "~/{{ robot_name }}_ws"

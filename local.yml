@@ -3,6 +3,8 @@
     ros2_gpg_key_url: https://raw.githubusercontent.com/ros/rosdistro/master/ros.key
     ros2_repository_url: http://packages.ros.org/ros2/ubuntu
     ros2_distro: humble
+    robot_name: skratch
+    rebonn_env_version: 0.0.1
   pre_tasks:
     - name: Apt update
       become: true

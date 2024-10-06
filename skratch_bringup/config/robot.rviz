@@ -174,43 +174,19 @@ Visualization Manager:
       Frame Timeout: 15
       Frames:
         All Enabled: true
-        base_link:
+        skratch_base_link:
           Value: true
-        front_left_skratch_wheel_hub:
+        skratch_left_skratch_bottom_base:
           Value: true
-        front_left_wheel_one:
+        skratch_left_skratch_top_base:
           Value: true
-        front_left_wheel_two:
+        skratch_left_skratch_wheel_support:
           Value: true
-        front_right_skratch_wheel_hub:
+        skratch_right_skratch_bottom_base:
           Value: true
-        front_right_wheel_one:
+        skratch_right_skratch_top_base:
           Value: true
-        front_right_wheel_two:
-          Value: true
-        left_skratch_bottom_base:
-          Value: true
-        left_skratch_top_base:
-          Value: true
-        left_skratch_wheel_support:
-          Value: true
-        rear_left_skratch_wheel_hub:
-          Value: true
-        rear_left_wheel_one:
-          Value: true
-        rear_left_wheel_two:
-          Value: true
-        rear_right_skratch_wheel_hub:
-          Value: true
-        rear_right_wheel_one:
-          Value: true
-        rear_right_wheel_two:
-          Value: true
-        right_skratch_bottom_base:
-          Value: true
-        right_skratch_top_base:
-          Value: true
-        right_skratch_wheel_support:
+        skratch_right_skratch_wheel_support:
           Value: true
       Marker Scale: 1
       Name: TF
@@ -218,39 +194,21 @@ Visualization Manager:
       Show Axes: true
       Show Names: false
       Tree:
-        base_link:
-          left_skratch_top_base:
-            left_skratch_bottom_base:
-              left_skratch_wheel_support:
-                front_left_skratch_wheel_hub:
-                  front_left_wheel_one:
-                    {}
-                  front_left_wheel_two:
-                    {}
-                rear_left_skratch_wheel_hub:
-                  rear_left_wheel_one:
-                    {}
-                  rear_left_wheel_two:
-                    {}
-          right_skratch_top_base:
-            right_skratch_bottom_base:
-              right_skratch_wheel_support:
-                front_right_skratch_wheel_hub:
-                  front_right_wheel_one:
-                    {}
-                  front_right_wheel_two:
-                    {}
-                rear_right_skratch_wheel_hub:
-                  rear_right_wheel_one:
-                    {}
-                  rear_right_wheel_two:
-                    {}
+        skratch_base_link:
+          skratch_left_skratch_top_base:
+            skratch_left_skratch_bottom_base:
+              skratch_left_skratch_wheel_support:
+                {}
+          skratch_right_skratch_top_base:
+            skratch_right_skratch_bottom_base:
+              skratch_right_skratch_wheel_support:
+                {}
       Update Interval: 0
       Value: true
   Enabled: true
   Global Options:
     Background Color: 48; 48; 48
-    Fixed Frame: base_link
+    Fixed Frame: skratch_base_link
     Frame Rate: 30
   Name: root
   Tools:
@@ -308,10 +266,10 @@ Visualization Manager:
       Invert Z Axis: false
       Name: Current View
       Near Clip Distance: 0.009999999776482582
-      Pitch: 0.15539871156215668
+      Pitch: 0.9103987216949463
       Target Frame: <Fixed Frame>
       Value: Orbit (rviz)
-      Yaw: 0.1853947788476944
+      Yaw: 6.193580150604248
     Saved: ~
 Window Geometry:
   Displays:

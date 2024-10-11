@@ -1,0 +1,49 @@
+- name: Install locales
+  become: true
+  apt:
+    name: locales
+    update_cache: true
+- name: Set locales to UTF-8
+  become: true
+  shell:
+    cmd: locale-gen en_US en_US.UTF-8 && update-locale LC_ALL=en_US.UTF-8 LANG=en_US.UTF-8 && export LANG=en_US.UTF-8
+- name: Setup ROS sources
+  become: true
+  apt:
+    name: software-properties-common
+- name: Get curl
+  become: true
+  apt:
+    name: curl
+    update_cache: true
+- name: Add ROS 2 GPG key
+  become: true
+  apt_key:
+    url: "{{ ros2_gpg_key_url }}"
+    keyring: /usr/share/keyrings/ros-archive-keyring.gpg
+    state: present
+- name: Add repository to source list
+  become: true
+  apt_repository:
+    repo: "deb [signed-by=/usr/share/keyrings/ros-archive-keyring.gpg] {{ ros2_repository_url }} {{ ansible_distribution_release }} main"
+    state: present
+    filename: ros2
+- name: Update and Upgrade sources
+  become: true
+  apt:
+    upgrade: true
+    update_cache: true
+- name: Install ROS desktop
+  become: true
+  apt:
+    name: ros-{{ ros2_distro }}-desktop
+- name: Install ROS development tools
+  become: true
+  apt:
+    name: ros-dev-tools
+- name: Add ROS source file to bashrc
+  lineinfile:
+    path: "{{ ansible_env.HOME }}/.bashrc"
+    line: "source /opt/ros/{{ ros2_distro }}/setup.bash"
+  notify:
+    - Reload ~/.bashrc

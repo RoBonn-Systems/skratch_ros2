@@ -1,0 +1,49 @@
+- hosts: localhost
+  vars:
+    ros2_gpg_key_url: https://raw.githubusercontent.com/ros/rosdistro/master/ros.key
+    ros2_repository_url: http://packages.ros.org/ros2/ubuntu
+    ros2_distro: humble
+    robot_name: skratch
+    rebonn_env_version: 0.0.1
+  pre_tasks:
+    - name: Apt update
+      become: true
+      apt:
+        force_apt_get: true
+        update_cache: true
+        state: present
+  tasks:
+    - name: Install ROS
+      import_tasks: tasks/ros.yml
+      tags:
+        - robot
+        - ros
+    - name: Set environment information
+      import_tasks: tasks/env.yml
+      tags: 
+        - developer
+        - robot
+        - env
+    - name: System tooling
+      import_tasks: tasks/tooling.yml
+      tags: 
+        - developer
+        - robot
+        - tooling
+    - name: Pull external repos
+      import_tasks: tasks/vcs.yml
+      tags:
+        - developer
+        - robot
+        - vcs
+    - name: Install dependencies
+      import_tasks: tasks/rosdep.yml
+      tags:
+        - robot
+        - developer
+        - rosdep
+  handlers:
+    - name: Reload ~/.bashrc
+      shell: source ~/.bashrc
+      args:
+        executable: /bin/bash

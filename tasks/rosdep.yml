@@ -1,0 +1,18 @@
+- name: Install rosdep
+  become: true
+  apt:
+    name: python3-rosdep
+- name: Check if rosdep is initialized
+  stat:
+    path: /etc/ros/rosdep/sources.list.d/20-default.list
+  register: rosdep_sources_list
+- name: Init rosdep
+  become: true
+  shell: rosdep init
+  when: not rosdep_sources_list.stat.exists
+- name: Update rosdep
+  shell: rosdep update
+- name: Install ros native dependencies
+  shell: rosdep install --from-paths src --ignore-src -r -y
+  args:
+    chdir: "~/{{ robot_name }}_ws"

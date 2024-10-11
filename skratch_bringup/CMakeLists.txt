@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 3.5)
-project(skratch_ros2)
+project(skratch_bringup)
 
 if(NOT CMAKE_C_STANDARD)
   set(CMAKE_C_STANDARD 99)
@@ -23,7 +23,7 @@ if(BUILD_TESTING)
 endif()
 
 install(
-  DIRECTORY config launch src
+  DIRECTORY config launch
   DESTINATION share/${PROJECT_NAME}
 )
 

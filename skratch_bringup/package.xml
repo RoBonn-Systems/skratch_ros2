@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <?xml-model href="http://download.ros.org/schema/package_format3.xsd" schematypens="http://www.w3.org/2001/XMLSchema"?>
 <package format="3">
-  <name>skratch_ros2</name>
+  <name>skratch_bringup</name>
   <version>0.0.0</version>
   <description>skratch repo for ROS2</description>
   <maintainer email="gokul.chenchani@smail.inf.h-brs.de">Gokul Chenchani</maintainer>
@@ -11,6 +11,18 @@
 
   <test_depend>ament_lint_auto</test_depend>
   <test_depend>ament_lint_common</test_depend>
+
+  <exec_depend>gazebo_ros</exec_depend>
+  <exec_depend>ros_gz</exec_depend>
+  <exec_depend>ros2_control</exec_depend>
+  <exec_depend>ros2_controllers</exec_depend>
+  <exec_depend>gazebo_ros2_control</exec_depend>
+  
+  <!-- this APT key just works for humble (see gz_ros2_control github repo for more details) -->
+  <!--https://github.com/ros-controls/gz_ros2_control -->
+  <exec_depend>ign_ros2_control</exec_depend> 
+  <!-- from Iron onward use this one -->
+  <!-- <exec_depend>gz_ros2_control</exec_depend>  -->
 
   <export>
     <build_type>ament_cmake</build_type>

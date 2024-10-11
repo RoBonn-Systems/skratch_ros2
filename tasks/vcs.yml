@@ -1,0 +1,10 @@
+- name: Get the current working directory
+  command: pwd
+  register: current_directory_output
+- name: Print the current working directory
+  debug:
+    msg: "The current working directory is: {{ current_directory_output.stdout }}"
+- name: Run vcs import < core.repos
+  shell: vcs import < core.repos
+  args:
+    chdir: "{{ current_directory_output.stdout }}"

@@ -1,0 +1,6 @@
+- name: Install system level core tools
+  become: true
+  apt:
+    name: 
+      - tmux
+      - net-tools

@@ -59,7 +59,7 @@ Visualization Manager:
         Durability Policy: Volatile
         History Policy: Keep Last
         Reliability Policy: Reliable
-        Value: /robot_description
+        Value: /skratch/robot_description
       Enabled: true
       Links:
         All Links Enabled: true
@@ -71,7 +71,92 @@ Visualization Manager:
           Alpha: 1
           Show Axes: false
           Show Trail: false
-        left_frame_one:
+        front_left_skratch_wheel_hub:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        front_left_wheel_one:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        front_left_wheel_two:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        front_right_skratch_wheel_hub:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        front_right_wheel_one:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        front_right_wheel_two:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        left_skratch_bottom_base:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        left_skratch_top_base:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        left_skratch_wheel_support:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        rear_left_skratch_wheel_hub:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        rear_left_wheel_one:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        rear_left_wheel_two:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        rear_right_skratch_wheel_hub:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        rear_right_wheel_one:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        rear_right_wheel_two:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        right_skratch_bottom_base:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        right_skratch_top_base:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        right_skratch_wheel_support:
           Alpha: 1
           Show Axes: false
           Show Trail: false
@@ -89,9 +174,19 @@ Visualization Manager:
       Frame Timeout: 15
       Frames:
         All Enabled: true
-        base_link:
+        skratch_base_link:
           Value: true
-        left_frame_one:
+        skratch_left_skratch_bottom_base:
+          Value: true
+        skratch_left_skratch_top_base:
+          Value: true
+        skratch_left_skratch_wheel_support:
+          Value: true
+        skratch_right_skratch_bottom_base:
+          Value: true
+        skratch_right_skratch_top_base:
+          Value: true
+        skratch_right_skratch_wheel_support:
           Value: true
       Marker Scale: 1
       Name: TF
@@ -99,15 +194,21 @@ Visualization Manager:
       Show Axes: true
       Show Names: false
       Tree:
-        base_link:
-          left_frame_one:
-            {}
+        skratch_base_link:
+          skratch_left_skratch_top_base:
+            skratch_left_skratch_bottom_base:
+              skratch_left_skratch_wheel_support:
+                {}
+          skratch_right_skratch_top_base:
+            skratch_right_skratch_bottom_base:
+              skratch_right_skratch_wheel_support:
+                {}
       Update Interval: 0
       Value: true
   Enabled: true
   Global Options:
     Background Color: 48; 48; 48
-    Fixed Frame: base_link
+    Fixed Frame: skratch_base_link
     Frame Rate: 30
   Name: root
   Tools:
@@ -165,10 +266,10 @@ Visualization Manager:
       Invert Z Axis: false
       Name: Current View
       Near Clip Distance: 0.009999999776482582
-      Pitch: 0.15539871156215668
+      Pitch: 0.9103987216949463
       Target Frame: <Fixed Frame>
       Value: Orbit (rviz)
-      Yaw: 0.1853947788476944
+      Yaw: 6.193580150604248
     Saved: ~
 Window Geometry:
   Displays:

@@ -7,3 +7,36 @@
 
       joint_state_broadcaster:
         type: joint_state_broadcaster/JointStateBroadcaster
+
+      front_left_wheel_imu:
+        type: imu_sensor_broadcaster/IMUSensorBroadcaster
+
+      front_right_wheel_imu:
+        type: imu_sensor_broadcaster/IMUSensorBroadcaster
+
+      rear_left_wheel_imu:
+        type: imu_sensor_broadcaster/IMUSensorBroadcaster
+
+      rear_right_wheel_imu:
+        type: imu_sensor_broadcaster/IMUSensorBroadcaster
+
+/**:
+  front_left_wheel_imu:
+    ros__parameters:
+      sensor_name: front_left_wheel_imu # this needs to match with `<sensor name="yolo"/> in the `<ros2_control>` tag
+      frame_id: front_left_wheel_imu_link
+
+  front_right_wheel_imu:
+    ros__parameters:
+      sensor_name: front_right_wheel_imu # this needs to match with `<sensor name="yolo"/> in the `<ros2_control>` tag
+      frame_id: front_right_wheel_imu_link
+
+  rear_left_wheel_imu:
+    ros__parameters:
+      sensor_name: rear_left_wheel_imu # this needs to match with `<sensor name="yolo"/> in the `<ros2_control>` tag
+      frame_id: rear_left_wheel_imu_link
+
+  rear_right_wheel_imu:
+    ros__parameters:
+      sensor_name: rear_right_wheel_imu # this needs to match with `<sensor name="yolo"/> in the `<ros2_control>` tag
+      frame_id: rear_right_wheel_imu_link

@@ -25,7 +25,7 @@ ansible-playbook local.yml --ask-become --tags developer
 3. If everything runs smoothly, you only have to compile the workspace:
 
 ```console
-cd ~/skratch_ws && colcon build --symlink-install && source install/local_setup.bash
+source /op/ros/$ROS_DISTRO/setup.bash && cd ~/skratch_ws && colcon build --symlink-install && source install/local_setup.bash
 ```
 
 At this point everything is ready ✅.

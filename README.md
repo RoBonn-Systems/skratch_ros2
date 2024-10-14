@@ -49,6 +49,12 @@ you can execute a single tag or a combination of multiple tags with the followin
 ansible-playbook local.yml --ask-become --tags chosen_tag1 chosen_tag2 chosen_tag3
 ```
 
+for example if you want to install all the dependencies run:
+
+```console
+ansible-playbook local.yml --ask-become --tags rosdep
+```
+
 ## Usage
 
 To run the basic rviz2 simulation execute below launch file

@@ -4,6 +4,12 @@ Skratch bot is a replacement for youBot-brsu used by b-it-bots@Work ["mas_indust
 
 This repositiory is for skratch ROS2 development
 
+## Build Status
+
+ROS 2 Distro | OS     | Branch | Build status
+:----------: | :----: | :----: | :----------:
+**Humble**   | Ubuntu 22.04 (Jammy Jellyfish)  | [`main`](https://github.com/RoBonn-Systems/skratch_ros2/tree/main) | ![Humble Build](https://github.com/RoBonn-Systems/skratch_ros2/actions/workflows/main.yaml/badge.svg?branch=main)
+
 ## Fresh Install
 
 1. Install the following system level packages:

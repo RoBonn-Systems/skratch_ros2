@@ -148,7 +148,8 @@ def launch_setup(context) -> list[LaunchDescriptionEntity]:
                     "front_left_wheel_imu",
                     "front_right_wheel_imu",
                     "rear_left_wheel_imu",
-                    "rear_right_wheel_imu"
+                    "rear_right_wheel_imu",
+                    "base_velocity_controller"
                 ],
             )
         ],
@@ -182,7 +183,8 @@ def launch_setup(context) -> list[LaunchDescriptionEntity]:
                     "front_left_wheel_imu",
                     "front_right_wheel_imu",
                     "rear_left_wheel_imu",
-                    "rear_right_wheel_imu"
+                    "rear_right_wheel_imu",
+                    "base_velocity_controller"
                 ],
             ),
         ],

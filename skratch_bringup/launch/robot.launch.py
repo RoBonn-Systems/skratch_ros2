@@ -13,7 +13,7 @@ def launch_args(context) -> list[LaunchDescriptionEntity]:
 
     declared_args.append(DeclareLaunchArgument(
         "robot_name",
-        default_value=EnvironmentVariable("ROBOT_NAME"),
+        default_value=EnvironmentVariable("ROBOT_NAME", default_value="robot"),
         description="Robot name, this is used as namespace to prefix all the nodes and topics"
     ))
 

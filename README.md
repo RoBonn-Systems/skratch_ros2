@@ -4,6 +4,12 @@ Skratch bot is a replacement for youBot-brsu used by b-it-bots@Work ["mas_indust
 
 This repositiory is for skratch ROS2 development
 
+## Build Status
+
+ROS 2 Distro | OS     | Branch | Build status
+:----------: | :----: | :----: | :----------:
+**Humble**   | Ubuntu 22.04 (Jammy Jellyfish)  | [`main`](https://github.com/RoBonn-Systems/skratch_ros2/tree/main) | ![Humble Build](https://github.com/RoBonn-Systems/skratch_ros2/actions/workflows/main.yaml/badge.svg?branch=main)
+
 ## Fresh Install
 
 1. Install the following system level packages:
@@ -25,7 +31,7 @@ ansible-playbook local.yml --ask-become --tags developer
 3. If everything runs smoothly, you only have to compile the workspace:
 
 ```console
-cd ~/skratch_ws && colcon build --symlink-install && source install/local_setup.bash
+source /opt/ros/$ROS_DISTRO/setup.bash && cd ~/skratch_ws && colcon build --symlink-install && source install/local_setup.bash
 ```
 
 At this point everything is ready ✅.
@@ -46,7 +52,13 @@ The automation script allows using tags to execute only specific tasks, the avai
 you can execute a single tag or a combination of multiple tags with the following command:
 
 ```console
-ansible-playbook local.yml --ask-become --tags chosen_tag1 chosen_tag2 chosen_tag3
+ansible-playbook local.yml --ask-become --tags "chosen_tag1, chosen_tag2, chosen_tag3"
+```
+
+for example if you want to install all the dependencies run:
+
+```console
+ansible-playbook local.yml --ask-become --tags "rosdep, vcs"
 ```
 
 ## Usage

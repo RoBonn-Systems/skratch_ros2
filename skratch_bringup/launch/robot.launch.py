@@ -144,7 +144,12 @@ def launch_setup(context) -> list[LaunchDescriptionEntity]:
                 executable="spawner",
                 arguments=[
                     "-p", controllers_path_performed,
-                    "joint_state_broadcaster",  # ???? check if we need this
+                    "joint_state_broadcaster",
+                    "front_left_wheel_imu",
+                    "front_right_wheel_imu",
+                    "rear_left_wheel_imu",
+                    "rear_right_wheel_imu",
+                    "base_velocity_controller"
                 ],
             )
         ],
@@ -174,9 +179,14 @@ def launch_setup(context) -> list[LaunchDescriptionEntity]:
                 executable="spawner",
                 arguments=[
                     "-p", controllers_path_performed,
-                    "joint_state_broadcaster", 
+                    "joint_state_broadcaster",
+                    "front_left_wheel_imu",
+                    "front_right_wheel_imu",
+                    "rear_left_wheel_imu",
+                    "rear_right_wheel_imu",
+                    "base_velocity_controller"
                 ],
-            )
+            ),
         ],
         condition=LaunchConfigurationEquals("system", "gazebo")
     )

@@ -56,6 +56,7 @@
         - front_left_wheel_one_joint
         - front_left_wheel_two_joint
         - front_right_wheel_one_joint
+        - front_right_wheel_two_joint
 
   base_effort_controller:
     ros__parameters:

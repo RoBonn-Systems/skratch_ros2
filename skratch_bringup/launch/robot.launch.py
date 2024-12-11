@@ -103,15 +103,26 @@ def launch_setup(context) -> list[LaunchDescriptionEntity]:
         ]
     )
 
-
-    # controller_manager
-    controller_manager = Node(
-        package="controller_manager",
-        executable="spawner",
-        arguments=[
-            "-p", controllers_path_performed,
-            "joint_state_broadcaster", 
-        ],
+    controllers = GroupAction(
+        actions=[
+            Node(
+                package="controller_manager",
+                executable="spawner",
+                arguments=["joint_state_broadcaster"],
+            ),
+            Node(
+                package="controller_manager",
+                executable="spawner",
+                arguments=[
+                    "-p", controllers_path_performed,
+                    "front_left_wheel_imu",
+                    "front_right_wheel_imu",
+                    "rear_left_wheel_imu",
+                    "rear_right_wheel_imu",
+                    "base_velocity_controller"
+                ],
+            ),
+        ]
     )
 
     gz_spawn = GroupAction(
@@ -139,19 +150,6 @@ def launch_setup(context) -> list[LaunchDescriptionEntity]:
                 ],
                 output='both',
             ),
-            Node(
-                package="controller_manager",
-                executable="spawner",
-                arguments=[
-                    "-p", controllers_path_performed,
-                    "joint_state_broadcaster",
-                    "front_left_wheel_imu",
-                    "front_right_wheel_imu",
-                    "rear_left_wheel_imu",
-                    "rear_right_wheel_imu",
-                    "base_velocity_controller"
-                ],
-            )
         ],
         condition=LaunchConfigurationEquals("system", "gz")
     )
@@ -173,19 +171,6 @@ def launch_setup(context) -> list[LaunchDescriptionEntity]:
                     "-y", LaunchConfiguration("y"),
                     "-z", LaunchConfiguration("z"),
                     "-entity", LaunchConfiguration("robot_name")]
-            ),
-            Node(
-                package="controller_manager",
-                executable="spawner",
-                arguments=[
-                    "-p", controllers_path_performed,
-                    "joint_state_broadcaster",
-                    "front_left_wheel_imu",
-                    "front_right_wheel_imu",
-                    "rear_left_wheel_imu",
-                    "rear_right_wheel_imu",
-                    "base_velocity_controller"
-                ],
             ),
         ],
         condition=LaunchConfigurationEquals("system", "gazebo")
@@ -210,6 +195,7 @@ def launch_setup(context) -> list[LaunchDescriptionEntity]:
         PushRosNamespace(LaunchConfiguration("robot_name")), # this help to add namespace to all entities
         robot_state_publisher,
         gazebo_spawn_and_control,
+        controllers,
         gz_spawn,
         rviz
     ]

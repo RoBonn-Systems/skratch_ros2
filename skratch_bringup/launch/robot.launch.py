@@ -142,9 +142,13 @@ def launch_setup(context) -> list[LaunchDescriptionEntity]:
             Node(
                 package="controller_manager",
                 executable="spawner",
+                arguments=["joint_state_broadcaster"],
+            ),
+            Node(
+                package="controller_manager",
+                executable="spawner",
                 arguments=[
                     "-p", controllers_path_performed,
-                    "joint_state_broadcaster",
                     "front_left_wheel_imu",
                     "front_right_wheel_imu",
                     "rear_left_wheel_imu",
@@ -177,9 +181,13 @@ def launch_setup(context) -> list[LaunchDescriptionEntity]:
             Node(
                 package="controller_manager",
                 executable="spawner",
+                arguments=["joint_state_broadcaster"],
+            ),
+            Node(
+                package="controller_manager",
+                executable="spawner",
                 arguments=[
                     "-p", controllers_path_performed,
-                    "joint_state_broadcaster",
                     "front_left_wheel_imu",
                     "front_right_wheel_imu",
                     "rear_left_wheel_imu",
